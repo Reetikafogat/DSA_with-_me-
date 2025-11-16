@@ -23,3 +23,24 @@ for i in array:
     index+=1
 arr[:]=arr[:index]
 print(arr)
+
+#🏆2.reverse an array
+# 📍using an another array - first create an empty array of same length as original array and then start looping from the end of original array and store every element in new array then again loop the new array and 
+# change the items of original array with new array's elements 
+arr=[1,2,3,4,5,6]
+n=len(arr)
+new_arr=[0]*n
+for i in arr:
+  new_arr[i]=arr[n-i-1]
+for i in new_arr:
+  arr[i]=new_arr[i]
+return arr
+#📍using reverse() function in python 
+#📍using two pointers approach - start two pointers i and j i starts from beginning of array and j starts from the end of array and increment i and decrement j everytime the elements are swapped until i<j. 
+i=0
+j=n-1
+while i<j:
+  arr[i],arr[j]=arr[j],arr[i]
+  i+=1
+  j-=1
+return arr
