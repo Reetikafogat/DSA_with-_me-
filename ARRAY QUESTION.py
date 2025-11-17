@@ -44,3 +44,20 @@ while i<j:
   i+=1
   j-=1
 return arr
+🏆# Reverse an array in groups of k length 
+# for eg: arr=[1,2,3,4,5,6,7,8] then output [3,2,1,6,5,4,8,7]. if the elements remaining is not of length of k thyen just reverse it. so theapproach will bethat we comapare the length of arr or 
+# elements remaining in array with the the reversed length or reversed no. of elements and thus find which one is less and if the reversed length is short that means thereare more elements outside reversed part of
+# array and again the looping could be done and k length of elements would be reversed . for this we require two loops one for the length to iterate or creating subgroups and other to write the 
+# reversing array logic using two pointers 
+reversed_arr(arr,k):
+n=len(arr)
+i=0
+while(i<=n):
+  start=i
+  end =min(i+k-1,n-1)
+  while(start<end):
+    arr[start],arr[end]=arr[end],arr[start]
+    start+=1
+    end-=1
+  i+=k
+return reversed_arr
