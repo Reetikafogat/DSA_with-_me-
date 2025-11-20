@@ -149,7 +149,7 @@ count,max_count=0,0
       count=0
   print(max_count) 
 
-# 🏆Move all zeroes to the end of array:
+# 🏆 7.Move all zeroes to the end of array:
 # 📍using a temporary array of length of array first put all non-zero to temp arr then fill the remaining space with zeroes.put  tracker (j) to find  the remaining space starting index.at last copy all the elements 
 # to original in the order of temp array.
 arr=[0,7,0,1,5,2,1,0]
@@ -166,10 +166,26 @@ for i in range(n):
   arr[i]=temp[i]
 
 # 📍 using swapping:
-
 j=0
 for i in range(n):
   if arr[i]!=0:
     arr[i],arr[j]=arr[j],arr[i]
     j+=1
 return arr
+
+# 🏆 8. adding one to the array of digits 
+# Input : [1, 2, 4]
+# Output : 125
+# Explanation: 124 + 1 = 125 
+# 📍this can be done using carry: take carry=1 in strting and start traversing from end of the array and because we have to add 1 to last element so now we will add the carry 
+# to the last element and update the carry with whatever generates.at last check if there's any carry then insert it to the starting position of the array.
+carry=1
+for i in range(len(arr)-1,-1,-1): 
+  summ=arr[i]+carry
+  arr[i]=summ % 10
+  carry= summ // 10
+if carry:
+  arr.insert(0,carry)
+print(arr)
+  
+
