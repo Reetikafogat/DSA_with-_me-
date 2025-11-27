@@ -49,7 +49,7 @@ return arr
 # elements remaining in array with the the reversed length or reversed no. of elements and thus find which one is less and if the reversed length is short that means thereare more elements outside reversed part of
 # array and again the looping could be done and k length of elements would be reversed . for this we require two loops one for the length to iterate or creating subgroups and other to write the 
 # reversing array logic using two pointers 
-reversed_arr(arr,k):
+def reversed_arr(arr,k):
 n=len(arr)
 i=0
 while(i<=n):
@@ -187,5 +187,47 @@ for i in range(len(arr)-1,-1,-1):
 if carry:
   arr.insert(0,carry)
 print(arr)
-  
 
+# 🏆 9.Buy and sell stocks 
+# Given an array prices[] of length N, representing the prices of the stocks on different days, the task is to find the maximum profit possible by buying and selling the stocks on 
+# different days when at most one transaction is allowed. Here one transaction means 1 buy + 1 Sell.
+# Note: Stock must be bought before being sold.
+# input= {7, 10, 1, 3, 6, 9, 2}
+# Output: 8
+# Explanation: Buy for price 1 and sell for price 9. 
+# it can be solved by two approach-
+# 📍 using nested for loop and iterating over all the pairs that can be formed, in every pair we calculate the difference(for profit calculation) and then update the maximum bnecause we have to find out
+# not only the profit but the max profit that can be attained.
+arr={7, 10, 1, 3, 6, 9, 2}
+max_profit=0
+for i in range(len(arr)-1):
+  for j in range(i+1,len(arr)):
+    max_profit=max(max_profit,arr[j]-arr[i])
+print(max_profit)
+
+# but this approach take o(n^2) time complexity and space complexity 
+# 📍using only one loop- in this we track the smallest buying price and then we find difference and along by side we keep track of maximum profit. becsause we know that the highest profit is only possible when 
+# the buying price will be minimum and the selling price will be maximum (which we can just trqack by the difference and maximum function. 
+# time complexity= o(n)
+max_profit=0
+minimum_so_far=arr[0]
+for i in range(1,len(arr)):
+  minimum_so_far=(minimum_so_far,arr[i])
+  max_profit=max(max_profit, arr[i]-minimum_so_far )
+print(max_profit)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
